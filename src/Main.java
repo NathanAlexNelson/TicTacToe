@@ -52,7 +52,7 @@ public class Main {
 			Game.returnPlayerchange();
 			Game.GameBoard();
 			
-		System.out.println("Please place your piece \nRow: 1 - 3\nCol: 1 - 3");
+		System.out.println("Please place your piece \nColumn: 1 - 3\nRow: 1 - 3");
 		do {
 		if (TeamPlaying == myTeam) {
 		F = input.nextInt() - 1;

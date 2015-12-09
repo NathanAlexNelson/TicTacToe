@@ -16,33 +16,60 @@ public class Main {
 		int computer = 1;
 		char currentPlayer = 'X';
 		int computer2 = 1;
+		char Player ='u';
+		char ComputerAI ='U';
+		char Computer2AI = 'u';
+		String WinnerStatement = "a";
 		
 		Scanner input = new Scanner(System.in);
 		
+		WinMessage aMessage = new WinMessage();
+		
+		
+		TicTacToe Game = new TicTacToe();
 		
 		System.out.println("Which team would you like to be? \n1.X's \n2.O's \n3.Computers");
 		Teamchose = input.nextInt();
+		input.nextLine();
+		
+		if (Teamchose == 1 || Teamchose == 2){
+		System.out.println("What would you like your win message to be?");
+		WinnerStatement = input.nextLine();
+		
+		}
+		
+		
+		String Win = aMessage.ReturnWinMessage(WinnerStatement);
+		
+		
+		//System.out.println(Win); //test code to make sure the constructor works
 		
 		if (Teamchose == 1){
 			myTeam = 0;
 			computer = 1;
+			Player = 'X';
+			ComputerAI = 'O';
 		}
 
 		else if (Teamchose == 2){
 			myTeam = 1;
 			computer = 0;
+			Player = 'P';
+			ComputerAI = 'X';
 		}
 		
 		else if (Teamchose == 3){
 			computer = 0;
 			computer2 = 1;
+			Computer2AI = 'X';
+			ComputerAI = 'O';
 		}
 		else {
 			System.out.println("You have chosen an invalid option.");
 		}
 		
 		
-		TicTacToe Game = new TicTacToe();
+		
 		
 		
 		
@@ -104,7 +131,18 @@ public class Main {
 		Game.GameBoard();
 		Game.changePlayer();
 		System.out.println("Team " + WinTeam + " wins!");	
+		
+		if (WinTeam == Player){
+		System.out.println(Win);
+		}
+		
+		else if (ComputerAI == WinTeam || Computer2AI == WinTeam){
+		System.out.println("The computer wins!");
+		}
+		
 		FNF = 1;
+		
+		
 		}
 		else if (Game.BoardFull()){
 		System.out.println("There is a draw!");
